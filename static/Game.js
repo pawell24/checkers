@@ -1,7 +1,7 @@
 class Game {
   constructor(camera_angle, map) {
     this.choosen_pawn = ''
-    this.szachownica = [
+    this.pawnboard = [
       [0, 1, 0, 1, 0, 1, 0, 1],
       [1, 0, 1, 0, 1, 0, 1, 0],
       [0, 1, 0, 1, 0, 1, 0, 1],
@@ -16,7 +16,7 @@ class Game {
 
     this.pawns = []
 
-    this.szachownica_blocks = []
+    this.pawnboard_blocks = []
 
     this.camera_angle = camera_angle
 
@@ -103,16 +103,16 @@ class Game {
 
     for (let i = 0; i < 8; i++) {
       this.pawns.push([])
-      this.szachownica_blocks.push([])
+      this.pawnboard_blocks.push([])
 
       for (let j = 0; j < 8; j++) {
         let texture
 
-        if (this.szachownica[i][j] == 0) texture = '/textures/bialy.jpg'
+        if (this.pawnboard[i][j] == 0) texture = '/textures/bialy.jpg'
         else texture = '/textures/czarny.jpg'
 
-        let cube = new Blok(texture, i, j, this.szachownica[i][j])
-        this.szachownica_blocks[i].push(cube)
+        let cube = new Blok(texture, i, j, this.pawnboard[i][j])
+        this.pawnboard_blocks[i].push(cube)
         this.scene.add(cube)
 
         /////cylinder
