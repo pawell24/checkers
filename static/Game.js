@@ -212,7 +212,7 @@ class Game {
       }
 
       ////ruch
-      let obok = (blok, i, j, base) => {
+      let near = (blok, i, j, base) => {
         if (base == 2) {
           if (blok.i == i - 1 && blok.j == j - 1) return true
           if (blok.i == i - 1 && blok.j == j + 1) return true
@@ -234,7 +234,7 @@ class Game {
 
         let { base } = this.choosen_pawn
 
-        if (this.pawns_position[blok.i][blok.j] == 0 && obok(blok, i, j, base)) {
+        if (this.pawns_position[blok.i][blok.j] == 0 && near(blok, i, j, base)) {
           this.choosen_pawn.move(blok.i, blok.j)
           this.pawns_position[i][j] = 0
 
