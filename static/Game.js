@@ -132,13 +132,13 @@ class Game {
             base = 1
           }
 
-          let pionek = new Pionek(color, kolorek, base, i, j)
+          let pawn = new Pionek(color, kolorek, base, i, j)
 
-          pionek.position.set(i * 30 - 120, 10, 30 * j - 120)
+          pawn.position.set(i * 30 - 120, 10, 30 * j - 120)
 
-          this.scene.add(pionek)
+          this.scene.add(pawn)
 
-          this.pionki[i].push(pionek)
+          this.pionki[i].push(pawn)
         } else {
           this.pionki[i].push(0)
         }
@@ -170,8 +170,8 @@ class Game {
 
     if (intersects.length > 0) {
       /////wybranie pionka
-      if (intersects[0].object.name == 'pionek') {
-        let pionek = this.find_pionek(intersects[0].object.uuid)
+      if (intersects[0].object.name == 'pawn') {
+        let pawn = this.find_pionek(intersects[0].object.uuid)
 
         for (let i = 0; i < 8; i++) {
           this.pionki[i].forEach((el) => {
@@ -188,24 +188,24 @@ class Game {
         }
 
         if (this.camera_angle == 1) {
-          if (pionek.kolorek == 'white') {
-            this.choosen_pawn = pionek
+          if (pawn.kolorek == 'white') {
+            this.choosen_pawn = pawn
 
-            pionek.click('yellow')
+            pawn.click('yellow')
           } else {
-            if (pionek.base != 1) {
-              this.delete(pionek)
+            if (pawn.base != 1) {
+              this.delete(pawn)
             }
           }
         }
         if (this.camera_angle == 2) {
-          if (pionek.kolorek == 'black') {
-            this.choosen_pawn = pionek
+          if (pawn.kolorek == 'black') {
+            this.choosen_pawn = pawn
 
-            pionek.click('yellow')
+            pawn.click('yellow')
           } else {
-            if (pionek.base != 2) {
-              this.delete(pionek)
+            if (pawn.base != 2) {
+              this.delete(pawn)
             }
           }
         }
@@ -257,18 +257,18 @@ class Game {
     }
   }
 
-  delete(pionek) {
-    this.scene.remove(pionek)
+  delete(pawn) {
+    this.scene.remove(pawn)
 
-    this.pawns_position[pionek.i][pionek.j] = this.choosen_pawn.base
+    this.pawns_position[pawn.i][pawn.j] = this.choosen_pawn.base
     this.pawns_position[this.choosen_pawn.i][this.choosen_pawn.j] = 0
 
-    this.pionki[pionek.i][pionek.j] = this.choosen_pawn
+    this.pionki[pawn.i][pawn.j] = this.choosen_pawn
     this.pionki[this.choosen_pawn.i][this.choosen_pawn.j] = 0
 
-    net.sendMap(pionek.i, pionek.j, this.choosen_pawn.i, this.choosen_pawn.j, this.camera_angle)
+    net.sendMap(pawn.i, pawn.j, this.choosen_pawn.i, this.choosen_pawn.j, this.camera_angle)
 
-    this.choosen_pawn.move(pionek.i, pionek.j)
+    this.choosen_pawn.move(pawn.i, pawn.j)
 
     this.update_minimap(this.pawns_position)
   }

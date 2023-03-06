@@ -1,63 +1,48 @@
 class Pionek extends THREE.Mesh {
+  constructor(color, kolorek, base, i, j) {
+    let geometry = new THREE.CylinderGeometry(10, 10, 10, 40, 1)
 
-    constructor(color, kolorek, base, i, j) {
+    let material = new THREE.MeshBasicMaterial({ color: color })
 
-        let geometry = new THREE.CylinderGeometry(10, 10, 10, 40, 1);
+    super(geometry, material)
 
-        let material = new THREE.MeshBasicMaterial({ color: color });
+    this.name = 'pawn'
+    this._color = color
+    this.kolorek = kolorek
+    this.base = base
 
+    this.i = i
+    this.j = j
+  }
 
-        super(geometry, material);
+  set color(val) {
+    this._color = val
+  }
+  get color() {
+    return this._color
+  }
 
-        this.name = "pionek";
-        this._color = color;
-        this.kolorek = kolorek;
-        this.base = base;
-
-        this.i = i;
-        this.j = j;
-
-
+  click(kolorek) {
+    if (kolorek == 'white') {
+      this.kolorek = kolorek
+      this.material.color.setHex('0xFFFFFF')
     }
 
-    set color(val) {
-
-        this._color = val;
-
-    }
-    get color() {
-
-        return this._color;
+    if (kolorek == 'black') {
+      this.kolorek = kolorek
+      this.material.color.setHex('0x000000')
     }
 
-    click(kolorek) {
-        if (kolorek == "white") {
-
-            this.kolorek = kolorek;
-            this.material.color.setHex("0xFFFFFF")
-        }
-
-        if (kolorek == "black") {
-
-            this.kolorek = kolorek;
-            this.material.color.setHex("0x000000")
-        }
-
-        if (kolorek == "yellow") {
-
-            this.kolorek = kolorek;
-            this.material.color.setHex("0xFFFF00")
-        }
-
+    if (kolorek == 'yellow') {
+      this.kolorek = kolorek
+      this.material.color.setHex('0xFFFF00')
     }
+  }
 
-    move(i, j) {
-        
-        this.position.z = ((30 * j) - 120);
-        this.position.x = ((i * 30) - 120);
-        this.i =i;
-        this.j = j;
-
-        
-    }
+  move(i, j) {
+    this.position.z = 30 * j - 120
+    this.position.x = i * 30 - 120
+    this.i = i
+    this.j = j
+  }
 }
