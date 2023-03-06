@@ -35,12 +35,12 @@ let done = (base) => {
   else whichOne = 2
 }
 
-var server = http.createServer(function (req, res) {
+var server = http.createServer((req, res) => {
   switch (req.method) {
     case 'GET':
       switch (req.url) {
         case '/':
-          fs.readFile('static/index.html', function (error, data) {
+          fs.readFile('static/index.html', (error, data) => {
             if (error) {
               res.writeHead(404, { 'Content-Type': 'text/html' })
               res.write('<h1>File not found<h1>')
@@ -54,7 +54,7 @@ var server = http.createServer(function (req, res) {
           break
 
         case '/style.css':
-          fs.readFile('static/style.css', function (error, data) {
+          fs.readFile('static/style.css', (error, data) => {
             if (error) {
               res.writeHead(404, { 'Content-Type': 'text/html' })
               res.write('<h1>File not found<h1>')
@@ -68,7 +68,7 @@ var server = http.createServer(function (req, res) {
           break
 
         case '/jquery.js':
-          fs.readFile('static/jquery.js', function (error, data) {
+          fs.readFile('static/jquery.js', (error, data) => {
             if (error) {
               res.writeHead(404, { 'Content-Type': 'text/html' })
               res.write('<h1>File not found<h1>')
@@ -82,7 +82,7 @@ var server = http.createServer(function (req, res) {
           break
 
         case '/Ui.js':
-          fs.readFile('static/Ui.js', function (error, data) {
+          fs.readFile('static/Ui.js', (error, data) => {
             if (error) {
               res.writeHead(404, { 'Content-Type': 'text/html' })
               res.write('<h1>File not found<h1>')
@@ -96,7 +96,7 @@ var server = http.createServer(function (req, res) {
           break
 
         case '/Net.js':
-          fs.readFile('static/Net.js', function (error, data) {
+          fs.readFile('static/Net.js', (error, data) => {
             if (error) {
               res.writeHead(404, { 'Content-Type': 'text/html' })
               res.write('<h1>File not found<h1>')
@@ -110,7 +110,7 @@ var server = http.createServer(function (req, res) {
           break
 
         case '/Main.js':
-          fs.readFile('static/Main.js', function (error, data) {
+          fs.readFile('static/Main.js', (error, data) => {
             if (error) {
               res.writeHead(404, { 'Content-Type': 'text/html' })
               res.write('<h1>File not found<h1>')
@@ -124,7 +124,7 @@ var server = http.createServer(function (req, res) {
           break
 
         case '/Game.js':
-          fs.readFile('static/Game.js', function (error, data) {
+          fs.readFile('static/Game.js', (error, data) => {
             if (error) {
               res.writeHead(404, { 'Content-Type': 'text/html' })
               res.write('<h1>File not found<h1>')
@@ -138,7 +138,7 @@ var server = http.createServer(function (req, res) {
           break
 
         case '/three.js':
-          fs.readFile('static/three.js', function (error, data) {
+          fs.readFile('static/three.js', (error, data) => {
             if (error) {
               res.writeHead(404, { 'Content-Type': 'text/html' })
               res.write('<h1>File not found<h1>')
@@ -152,7 +152,7 @@ var server = http.createServer(function (req, res) {
           break
 
         case '/Pawn.js':
-          fs.readFile('static/Pawn.js', function (error, data) {
+          fs.readFile('static/Pawn.js', (error, data) => {
             if (error) {
               res.writeHead(404, { 'Content-Type': 'text/html' })
               res.write('<h1>File not found<h1>')
@@ -166,7 +166,7 @@ var server = http.createServer(function (req, res) {
           break
 
         case '/Blok.js':
-          fs.readFile('static/Blok.js', function (error, data) {
+          fs.readFile('static/Blok.js', (error, data) => {
             if (error) {
               res.writeHead(404, { 'Content-Type': 'text/html' })
               res.write('<h1>File not found<h1>')
@@ -180,7 +180,7 @@ var server = http.createServer(function (req, res) {
           break
 
         case '/textures/bialy.jpg':
-          fs.readFile('static/textures/bialy.jpg', function (error, data) {
+          fs.readFile('static/textures/bialy.jpg', (error, data) => {
             if (error) {
               res.writeHead(404, { 'Content-Type': 'text/html' })
               res.write('<h1>File not found<h1>')
@@ -194,7 +194,7 @@ var server = http.createServer(function (req, res) {
           break
 
         case '/textures/czarny.jpg':
-          fs.readFile('static/textures/czarny.jpg', function (error, data) {
+          fs.readFile('static/textures/czarny.jpg', (error, data) => {
             if (error) {
               res.writeHead(404, { 'Content-Type': 'text/html' })
               res.write('<h1>File not found<h1>')
@@ -216,11 +216,11 @@ var server = http.createServer(function (req, res) {
       if (req.url.includes('/user_log')) {
         var allData = ''
 
-        req.on('data', function (data) {
+        req.on('data', (data) => {
           allData += data
         })
 
-        req.on('end', function (data) {
+        req.on('end', (data) => {
           let finish = qs.parse(allData)
 
           console.log(finish.user)
@@ -319,11 +319,11 @@ var server = http.createServer(function (req, res) {
       if (req.url.includes('/sendMap')) {
         var allData = ''
 
-        req.on('data', function (data) {
+        req.on('data', (data) => {
           allData += data
         })
 
-        req.on('end', function (data) {
+        req.on('end', (data) => {
           let finish = qs.parse(allData)
 
           console.log(finish)
@@ -360,6 +360,6 @@ var server = http.createServer(function (req, res) {
   }
 })
 
-server.listen(3000, function () {
+server.listen(3000, () => {
   console.log('start servera Checker.')
 })
