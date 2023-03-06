@@ -168,18 +168,18 @@ class Net {
             map[blok_i][blok_j] == 0 &&
             this.game.pawns_position[pionek_i][pionek_j] == this.game.camera_angle
           ) {
-            this.game.scene.remove(this.game.pionki[pionek_i][pionek_j])
+            this.game.scene.remove(this.game.pawns[pionek_i][pionek_j])
 
-            this.game.pionki[pionek_i][pionek_j] = this.game.pionki[blok_i][blok_j]
-            this.game.pionki[blok_i][blok_j].move(pionek_i, pionek_j)
+            this.game.pawns[pionek_i][pionek_j] = this.game.pawns[blok_i][blok_j]
+            this.game.pawns[blok_i][blok_j].move(pionek_i, pionek_j)
 
-            this.game.pionki[blok_i][blok_j] = 0
+            this.game.pawns[blok_i][blok_j] = 0
           } else {
-            this.game.pionki[blok_i][blok_j].move(pionek_i, pionek_j)
+            this.game.pawns[blok_i][blok_j].move(pionek_i, pionek_j)
 
-            this.game.pionki[pionek_i][pionek_j] = this.game.pionki[blok_i][blok_j]
+            this.game.pawns[pionek_i][pionek_j] = this.game.pawns[blok_i][blok_j]
 
-            this.game.pionki[blok_i][blok_j] = 0
+            this.game.pawns[blok_i][blok_j] = 0
           }
 
           this.game.pawns_position = map

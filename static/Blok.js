@@ -1,7 +1,7 @@
 class Blok extends THREE.Mesh {
   constructor(texture, i, j, bool) {
-    var geometry = new THREE.BoxGeometry(30, 10, 30)
-    var materials = []
+    let geometry = new THREE.BoxGeometry(30, 10, 30)
+    let materials = []
 
     materials.push(
       new THREE.MeshBasicMaterial({

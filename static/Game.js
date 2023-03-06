@@ -14,7 +14,7 @@ class Game {
 
     this.pawns_position = map
 
-    this.pionki = []
+    this.pawns = []
 
     this.szachownica_blocks = []
 
@@ -102,7 +102,7 @@ class Game {
     $('#root').append(this.renderer.domElement)
 
     for (let i = 0; i < 8; i++) {
-      this.pionki.push([])
+      this.pawns.push([])
       this.szachownica_blocks.push([])
 
       for (let j = 0; j < 8; j++) {
@@ -138,9 +138,9 @@ class Game {
 
           this.scene.add(pawn)
 
-          this.pionki[i].push(pawn)
+          this.pawns[i].push(pawn)
         } else {
-          this.pionki[i].push(0)
+          this.pawns[i].push(0)
         }
       }
     }
@@ -174,7 +174,7 @@ class Game {
         let pawn = this.find_pionek(intersects[0].object.uuid)
 
         for (let i = 0; i < 8; i++) {
-          this.pionki[i].forEach((el) => {
+          this.pawns[i].forEach((el) => {
             if (el != 0) {
               if (el.base == 1) {
                 el.kolorek = 'white'
@@ -252,7 +252,7 @@ class Game {
   find_pionek(uuid) {
     for (let i = 0; i < 8; i++) {
       for (let j = 0; j < 8; j++) {
-        if (this.pionki[i][j] != 0) if (uuid == this.pionki[i][j].uuid) return this.pionki[i][j]
+        if (this.pawns[i][j] != 0) if (uuid == this.pawns[i][j].uuid) return this.pawns[i][j]
       }
     }
   }
@@ -263,8 +263,8 @@ class Game {
     this.pawns_position[pawn.i][pawn.j] = this.choosen_pawn.base
     this.pawns_position[this.choosen_pawn.i][this.choosen_pawn.j] = 0
 
-    this.pionki[pawn.i][pawn.j] = this.choosen_pawn
-    this.pionki[this.choosen_pawn.i][this.choosen_pawn.j] = 0
+    this.pawns[pawn.i][pawn.j] = this.choosen_pawn
+    this.pawns[this.choosen_pawn.i][this.choosen_pawn.j] = 0
 
     net.sendMap(pawn.i, pawn.j, this.choosen_pawn.i, this.choosen_pawn.j, this.camera_angle)
 
