@@ -26,7 +26,7 @@ class Net {
           this.interval()
         }
       },
-      error: function (xhr, status, error) {
+      error: (xhr, status, error) => {
         console.log(xhr)
       },
     })
@@ -37,8 +37,8 @@ class Net {
       url: '/reset',
       data: {},
       type: 'POST',
-      success: function (data) {},
-      error: function (xhr, status, error) {
+      success: (data) => {},
+      error: (xhr, status, error) => {
         console.log(xhr)
       },
     })
@@ -62,7 +62,7 @@ class Net {
             else $('#waiting').css('display', 'none')
           }
         },
-        error: function (xhr, status, error) {
+        error: (xhr, status, error) => {
           console.log(xhr)
         },
       })
@@ -80,10 +80,10 @@ class Net {
       url: '/sendMap',
       data: { i: i, j: j, old_i: oldi, old_j: oldj, base: base },
       type: 'POST',
-      success: function (data) {
+      success: (data) => {
         let obj = JSON.parse(data)
       },
-      error: function (xhr, status, error) {
+      error: (xhr, status, error) => {
         console.log(xhr)
       },
     })
@@ -123,7 +123,7 @@ class Net {
           $('.p').text('KONIEC GRY. WYGRAŁ GRACZ: ' + reverse)
         }
       },
-      error: function (xhr, status, error) {
+      error: (xhr, status, error) => {
         console.log(xhr)
       },
     })
@@ -187,7 +187,7 @@ class Net {
           this.game.update_minimap(map)
         }
       },
-      error: function (xhr, status, error) {
+      error: (xhr, status, error) => {
         console.log(xhr)
       },
     })
