@@ -1,4 +1,4 @@
-class Blok extends THREE.Mesh {
+class Item extends THREE.Mesh {
   constructor(texture, i, j, bool) {
     let geometry = new THREE.BoxGeometry(30, 10, 30)
     let materials = []

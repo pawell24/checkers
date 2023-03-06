@@ -165,8 +165,8 @@ var server = http.createServer((req, res) => {
           })
           break
 
-        case '/Blok.js':
-          fs.readFile('static/Blok.js', (error, data) => {
+        case '/Item.js':
+          fs.readFile('static/Item.js', (error, data) => {
             if (error) {
               res.writeHead(404, { 'Content-Type': 'text/html' })
               res.write('<h1>File not found<h1>')

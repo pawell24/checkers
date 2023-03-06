@@ -111,7 +111,7 @@ class Game {
         if (this.pawnboard[i][j] == 0) texture = '/textures/bialy.jpg'
         else texture = '/textures/czarny.jpg'
 
-        let cube = new Blok(texture, i, j, this.pawnboard[i][j])
+        let cube = new Item(texture, i, j, this.pawnboard[i][j])
         this.pawnboard_blocks[i].push(cube)
         this.scene.add(cube)
 
