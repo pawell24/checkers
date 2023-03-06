@@ -1,6 +1,6 @@
-var http = require('http')
-var qs = require('querystring')
-var fs = require('fs')
+let http = require('http')
+let qs = require('querystring')
+let fs = require('fs')
 
 let users_tab = []
 
@@ -35,7 +35,7 @@ let done = (base) => {
   else whichOne = 2
 }
 
-var server = http.createServer((req, res) => {
+let server = http.createServer((req, res) => {
   switch (req.method) {
     case 'GET':
       switch (req.url) {
@@ -214,7 +214,7 @@ var server = http.createServer((req, res) => {
 
     case 'POST':
       if (req.url.includes('/user_log')) {
-        var allData = ''
+        let allData = ''
 
         req.on('data', (data) => {
           allData += data
@@ -317,7 +317,7 @@ var server = http.createServer((req, res) => {
       }
 
       if (req.url.includes('/sendMap')) {
-        var allData = ''
+        let allData = ''
 
         req.on('data', (data) => {
           allData += data

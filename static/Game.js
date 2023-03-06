@@ -166,7 +166,7 @@ class Game {
 
     this.raycaster.setFromCamera(this.mouseVector, this.camera)
 
-    var intersects = this.raycaster.intersectObjects(this.scene.children)
+    let intersects = this.raycaster.intersectObjects(this.scene.children)
 
     if (intersects.length > 0) {
       /////wybranie pionka
