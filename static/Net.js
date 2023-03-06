@@ -147,7 +147,7 @@ class Net {
 
         for (let i = 0; i < 8; i++) {
           for (let j = 0; j < 8; j++) {
-            if (this.game.pionki_position[i][j] != map[i][j]) {
+            if (this.game.pawns_position[i][j] != map[i][j]) {
               flag = true
 
               if (map[i][j] == 0) {
@@ -166,7 +166,7 @@ class Net {
         if (flag) {
           if (
             map[blok_i][blok_j] == 0 &&
-            this.game.pionki_position[pionek_i][pionek_j] == this.game.camera_angle
+            this.game.pawns_position[pionek_i][pionek_j] == this.game.camera_angle
           ) {
             this.game.scene.remove(this.game.pionki[pionek_i][pionek_j])
 
@@ -182,7 +182,7 @@ class Net {
             this.game.pionki[blok_i][blok_j] = 0
           }
 
-          this.game.pionki_position = map
+          this.game.pawns_position = map
 
           this.game.update_minimap(map)
         }

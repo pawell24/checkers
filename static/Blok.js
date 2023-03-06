@@ -1,30 +1,55 @@
 class Blok extends THREE.Mesh {
+  constructor(texture, i, j, bool) {
+    var geometry = new THREE.BoxGeometry(30, 10, 30)
+    var materials = []
 
-    constructor(tekstura,i,j,bool) {
+    materials.push(
+      new THREE.MeshBasicMaterial({
+        side: THREE.DoubleSide,
+        map: new THREE.TextureLoader().load(texture),
+      })
+    )
+    materials.push(
+      new THREE.MeshBasicMaterial({
+        side: THREE.DoubleSide,
+        map: new THREE.TextureLoader().load(texture),
+      })
+    )
+    materials.push(
+      new THREE.MeshBasicMaterial({
+        side: THREE.DoubleSide,
+        map: new THREE.TextureLoader().load(texture),
+      })
+    )
+    materials.push(
+      new THREE.MeshBasicMaterial({
+        side: THREE.DoubleSide,
+        map: new THREE.TextureLoader().load(texture),
+      })
+    )
+    materials.push(
+      new THREE.MeshBasicMaterial({
+        side: THREE.DoubleSide,
+        map: new THREE.TextureLoader().load(texture),
+      })
+    )
+    materials.push(
+      new THREE.MeshBasicMaterial({
+        side: THREE.DoubleSide,
+        map: new THREE.TextureLoader().load(texture),
+      })
+    )
 
-        var geometry = new THREE.BoxGeometry(30, 10, 30);
-                var materials = [];
+    super(geometry, materials)
 
-                materials.push(new THREE.MeshBasicMaterial({ side: THREE.DoubleSide, map: new THREE.TextureLoader().load(tekstura) }));
-                materials.push(new THREE.MeshBasicMaterial({ side: THREE.DoubleSide, map: new THREE.TextureLoader().load(tekstura) }));
-                materials.push(new THREE.MeshBasicMaterial({ side: THREE.DoubleSide, map: new THREE.TextureLoader().load(tekstura) }));
-                materials.push(new THREE.MeshBasicMaterial({ side: THREE.DoubleSide, map: new THREE.TextureLoader().load(tekstura) }));
-                materials.push(new THREE.MeshBasicMaterial({ side: THREE.DoubleSide, map: new THREE.TextureLoader().load(tekstura) }));
-                materials.push(new THREE.MeshBasicMaterial({ side: THREE.DoubleSide, map: new THREE.TextureLoader().load(tekstura) }));
+    if (bool) this.name = 'blok'
+    else this.name = 'nope'
 
-        super(geometry, materials);
+    this.green = false
 
-        if(bool) this.name = "blok";
-        else this.name = "nope";
+    this.position.set(i * 30 - 120, 0, 30 * j - 120)
 
-        this.green = false;
-
-        this.position.set((i * 30) - 120, 0, (30 * j) - 120);
-
-        this.i = i;
-        this.j = j;
-
-    }
-
-
+    this.i = i
+    this.j = j
+  }
 }
