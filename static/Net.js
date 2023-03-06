@@ -142,8 +142,8 @@ class Net {
         let blok_i
         let blok_j
 
-        let pionek_i
-        let pionek_j
+        let pawn_i
+        let pawn_j
 
         for (let i = 0; i < 8; i++) {
           for (let j = 0; j < 8; j++) {
@@ -156,8 +156,8 @@ class Net {
               }
 
               if (map[i][j] == 1 || map[i][j] == 2) {
-                pionek_i = i
-                pionek_j = j
+                pawn_i = i
+                pawn_j = j
               }
             }
           }
@@ -166,18 +166,18 @@ class Net {
         if (flag) {
           if (
             map[blok_i][blok_j] == 0 &&
-            this.game.pawns_position[pionek_i][pionek_j] == this.game.camera_angle
+            this.game.pawns_position[pawn_i][pawn_j] == this.game.camera_angle
           ) {
-            this.game.scene.remove(this.game.pawns[pionek_i][pionek_j])
+            this.game.scene.remove(this.game.pawns[pawn_i][pawn_j])
 
-            this.game.pawns[pionek_i][pionek_j] = this.game.pawns[blok_i][blok_j]
-            this.game.pawns[blok_i][blok_j].move(pionek_i, pionek_j)
+            this.game.pawns[pawn_i][pawn_j] = this.game.pawns[blok_i][blok_j]
+            this.game.pawns[blok_i][blok_j].move(pawn_i, pawn_j)
 
             this.game.pawns[blok_i][blok_j] = 0
           } else {
-            this.game.pawns[blok_i][blok_j].move(pionek_i, pionek_j)
+            this.game.pawns[blok_i][blok_j].move(pawn_i, pawn_j)
 
-            this.game.pawns[pionek_i][pionek_j] = this.game.pawns[blok_i][blok_j]
+            this.game.pawns[pawn_i][pawn_j] = this.game.pawns[blok_i][blok_j]
 
             this.game.pawns[blok_i][blok_j] = 0
           }
