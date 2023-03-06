@@ -151,8 +151,8 @@ var server = http.createServer(function (req, res) {
           })
           break
 
-        case '/Pionek.js':
-          fs.readFile('static/Pionek.js', function (error, data) {
+        case '/Pawn.js':
+          fs.readFile('static/Pawn.js', function (error, data) {
             if (error) {
               res.writeHead(404, { 'Content-Type': 'text/html' })
               res.write('<h1>błąd 404 - nie ma pliku!<h1>')

@@ -132,7 +132,7 @@ class Game {
             base = 1
           }
 
-          let pawn = new Pionek(color, pawnColor, base, i, j)
+          let pawn = new Pawn(color, pawnColor, base, i, j)
 
           pawn.position.set(i * 30 - 120, 10, 30 * j - 120)
 
@@ -171,7 +171,7 @@ class Game {
     if (intersects.length > 0) {
       /////wybranie pionka
       if (intersects[0].object.name == 'pawn') {
-        let pawn = this.find_pionek(intersects[0].object.uuid)
+        let pawn = this.find_pawn(intersects[0].object.uuid)
 
         for (let i = 0; i < 8; i++) {
           this.pawns[i].forEach((el) => {
@@ -249,7 +249,7 @@ class Game {
     }
   }
 
-  find_pionek(uuid) {
+  find_pawn(uuid) {
     for (let i = 0; i < 8; i++) {
       for (let j = 0; j < 8; j++) {
         if (this.pawns[i][j] != 0) if (uuid == this.pawns[i][j].uuid) return this.pawns[i][j]

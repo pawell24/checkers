@@ -1,4 +1,4 @@
-class Pionek extends THREE.Mesh {
+class Pawn extends THREE.Mesh {
   constructor(color, pawnColor, base, i, j) {
     let geometry = new THREE.CylinderGeometry(10, 10, 10, 40, 1)
 
@@ -35,7 +35,7 @@ class Pionek extends THREE.Mesh {
 
     if (pawnColor == 'yellow') {
       this.pawnColor = pawnColor
-      this.material.color.setHex('0xFFFF00')
+      this.material.color.setHex('0xFF0000')
     }
   }
 
