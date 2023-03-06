@@ -67,6 +67,34 @@ var server = http.createServer((req, res) => {
           })
           break
 
+        case '/Main.js':
+          fs.readFile('static/Main.js', (error, data) => {
+            if (error) {
+              res.writeHead(404, { 'Content-Type': 'text/html' })
+              res.write('<h1>File not found<h1>')
+              res.end()
+            } else {
+              res.writeHead(200, { 'Content-Type': 'application/javascript' })
+              res.write(data)
+              res.end()
+            }
+          })
+          break
+
+        case '/Game.js':
+          fs.readFile('static/Game.js', (error, data) => {
+            if (error) {
+              res.writeHead(404, { 'Content-Type': 'text/html' })
+              res.write('<h1>File not found<h1>')
+              res.end()
+            } else {
+              res.writeHead(200, { 'Content-Type': 'application/javascript' })
+              res.write(data)
+              res.end()
+            }
+          })
+          break
+
         case '/jquery.js':
           fs.readFile('static/jquery.js', (error, data) => {
             if (error) {
@@ -97,34 +125,6 @@ var server = http.createServer((req, res) => {
 
         case '/Net.js':
           fs.readFile('static/Net.js', (error, data) => {
-            if (error) {
-              res.writeHead(404, { 'Content-Type': 'text/html' })
-              res.write('<h1>File not found<h1>')
-              res.end()
-            } else {
-              res.writeHead(200, { 'Content-Type': 'application/javascript' })
-              res.write(data)
-              res.end()
-            }
-          })
-          break
-
-        case '/Main.js':
-          fs.readFile('static/Main.js', (error, data) => {
-            if (error) {
-              res.writeHead(404, { 'Content-Type': 'text/html' })
-              res.write('<h1>File not found<h1>')
-              res.end()
-            } else {
-              res.writeHead(200, { 'Content-Type': 'application/javascript' })
-              res.write(data)
-              res.end()
-            }
-          })
-          break
-
-        case '/Game.js':
-          fs.readFile('static/Game.js', (error, data) => {
             if (error) {
               res.writeHead(404, { 'Content-Type': 'text/html' })
               res.write('<h1>File not found<h1>')
