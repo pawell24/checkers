@@ -1,9 +1,6 @@
-let net;
-let ui;
-$(document).ready(function(){
-
-    net = new Net();
-    ui = new Ui();
-
-
+let net
+let ui
+$(document).ready(function () {
+  net = new Net()
+  ui = new Ui()
 })

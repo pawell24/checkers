@@ -43,7 +43,7 @@ var server = http.createServer(function (req, res) {
           fs.readFile('static/index.html', function (error, data) {
             if (error) {
               res.writeHead(404, { 'Content-Type': 'text/html' })
-              res.write('<h1>błąd 404 - nie ma pliku!<h1>')
+              res.write('<h1>File not found<h1>')
               res.end()
             } else {
               res.writeHead(200, { 'Content-Type': 'text/html' })
@@ -57,7 +57,7 @@ var server = http.createServer(function (req, res) {
           fs.readFile('static/style.css', function (error, data) {
             if (error) {
               res.writeHead(404, { 'Content-Type': 'text/html' })
-              res.write('<h1>błąd 404 - nie ma pliku!<h1>')
+              res.write('<h1>File not found<h1>')
               res.end()
             } else {
               res.writeHead(200, { 'Content-Type': 'text/css' })
@@ -71,7 +71,7 @@ var server = http.createServer(function (req, res) {
           fs.readFile('static/jquery.js', function (error, data) {
             if (error) {
               res.writeHead(404, { 'Content-Type': 'text/html' })
-              res.write('<h1>błąd 404 - nie ma pliku!<h1>')
+              res.write('<h1>File not found<h1>')
               res.end()
             } else {
               res.writeHead(200, { 'Content-Type': 'application/javascript' })
@@ -85,7 +85,7 @@ var server = http.createServer(function (req, res) {
           fs.readFile('static/Ui.js', function (error, data) {
             if (error) {
               res.writeHead(404, { 'Content-Type': 'text/html' })
-              res.write('<h1>błąd 404 - nie ma pliku!<h1>')
+              res.write('<h1>File not found<h1>')
               res.end()
             } else {
               res.writeHead(200, { 'Content-Type': 'application/javascript' })
@@ -99,7 +99,7 @@ var server = http.createServer(function (req, res) {
           fs.readFile('static/Net.js', function (error, data) {
             if (error) {
               res.writeHead(404, { 'Content-Type': 'text/html' })
-              res.write('<h1>błąd 404 - nie ma pliku!<h1>')
+              res.write('<h1>File not found<h1>')
               res.end()
             } else {
               res.writeHead(200, { 'Content-Type': 'application/javascript' })
@@ -113,7 +113,7 @@ var server = http.createServer(function (req, res) {
           fs.readFile('static/Main.js', function (error, data) {
             if (error) {
               res.writeHead(404, { 'Content-Type': 'text/html' })
-              res.write('<h1>błąd 404 - nie ma pliku!<h1>')
+              res.write('<h1>File not found<h1>')
               res.end()
             } else {
               res.writeHead(200, { 'Content-Type': 'application/javascript' })
@@ -127,7 +127,7 @@ var server = http.createServer(function (req, res) {
           fs.readFile('static/Game.js', function (error, data) {
             if (error) {
               res.writeHead(404, { 'Content-Type': 'text/html' })
-              res.write('<h1>błąd 404 - nie ma pliku!<h1>')
+              res.write('<h1>File not found<h1>')
               res.end()
             } else {
               res.writeHead(200, { 'Content-Type': 'application/javascript' })
@@ -141,7 +141,7 @@ var server = http.createServer(function (req, res) {
           fs.readFile('static/three.js', function (error, data) {
             if (error) {
               res.writeHead(404, { 'Content-Type': 'text/html' })
-              res.write('<h1>błąd 404 - nie ma pliku!<h1>')
+              res.write('<h1>File not found<h1>')
               res.end()
             } else {
               res.writeHead(200, { 'Content-Type': 'application/javascript' })
@@ -155,7 +155,7 @@ var server = http.createServer(function (req, res) {
           fs.readFile('static/Pawn.js', function (error, data) {
             if (error) {
               res.writeHead(404, { 'Content-Type': 'text/html' })
-              res.write('<h1>błąd 404 - nie ma pliku!<h1>')
+              res.write('<h1>File not found<h1>')
               res.end()
             } else {
               res.writeHead(200, { 'Content-Type': 'application/javascript' })
@@ -169,7 +169,7 @@ var server = http.createServer(function (req, res) {
           fs.readFile('static/Blok.js', function (error, data) {
             if (error) {
               res.writeHead(404, { 'Content-Type': 'text/html' })
-              res.write('<h1>błąd 404 - nie ma pliku!<h1>')
+              res.write('<h1>File not found<h1>')
               res.end()
             } else {
               res.writeHead(200, { 'Content-Type': 'application/javascript' })
@@ -183,7 +183,7 @@ var server = http.createServer(function (req, res) {
           fs.readFile('static/textures/bialy.jpg', function (error, data) {
             if (error) {
               res.writeHead(404, { 'Content-Type': 'text/html' })
-              res.write('<h1>błąd 404 - nie ma pliku!<h1>')
+              res.write('<h1>File not found<h1>')
               res.end()
             } else {
               res.writeHead(200, { 'Content-Type': 'image/jpeg' })
@@ -197,7 +197,7 @@ var server = http.createServer(function (req, res) {
           fs.readFile('static/textures/czarny.jpg', function (error, data) {
             if (error) {
               res.writeHead(404, { 'Content-Type': 'text/html' })
-              res.write('<h1>błąd 404 - nie ma pliku!<h1>')
+              res.write('<h1>File not found<h1>')
               res.end()
             } else {
               res.writeHead(200, { 'Content-Type': 'image/jpeg' })
