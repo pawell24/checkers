@@ -3,7 +3,6 @@
 	typeof define === 'function' && define.amd ? define(['exports'], factory) :
 	(global = global || self, factory(global.THREE = {}));
 }(this, (function (exports) { 'use strict';
-
 	// Polyfills
 
 	if ( Number.EPSILON === undefined ) {

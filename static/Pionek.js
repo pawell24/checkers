@@ -1,5 +1,5 @@
 class Pionek extends THREE.Mesh {
-  constructor(color, kolorek, base, i, j) {
+  constructor(color, pawnColor, base, i, j) {
     let geometry = new THREE.CylinderGeometry(10, 10, 10, 40, 1)
 
     let material = new THREE.MeshBasicMaterial({ color: color })
@@ -8,7 +8,7 @@ class Pionek extends THREE.Mesh {
 
     this.name = 'pawn'
     this._color = color
-    this.kolorek = kolorek
+    this.pawnColor = pawnColor
     this.base = base
 
     this.i = i
@@ -22,19 +22,19 @@ class Pionek extends THREE.Mesh {
     return this._color
   }
 
-  click(kolorek) {
-    if (kolorek == 'white') {
-      this.kolorek = kolorek
+  click(pawnColor) {
+    if (pawnColor == 'white') {
+      this.pawnColor = pawnColor
       this.material.color.setHex('0xFFFFFF')
     }
 
-    if (kolorek == 'black') {
-      this.kolorek = kolorek
+    if (pawnColor == 'black') {
+      this.pawnColor = pawnColor
       this.material.color.setHex('0x000000')
     }
 
-    if (kolorek == 'yellow') {
-      this.kolorek = kolorek
+    if (pawnColor == 'yellow') {
+      this.pawnColor = pawnColor
       this.material.color.setHex('0xFFFF00')
     }
   }

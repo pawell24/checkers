@@ -119,20 +119,20 @@ class Game {
 
         if (this.pawns_position[i][j] != 0) {
           let color
-          let kolorek
+          let pawnColor
           let base
 
           if (this.pawns_position[i][j] == 2) {
             color = 0x000000
-            kolorek = 'black'
+            pawnColor = 'black'
             base = 2
           } else {
             color = 0xffffff
-            kolorek = 'white'
+            pawnColor = 'white'
             base = 1
           }
 
-          let pawn = new Pionek(color, kolorek, base, i, j)
+          let pawn = new Pionek(color, pawnColor, base, i, j)
 
           pawn.position.set(i * 30 - 120, 10, 30 * j - 120)
 
@@ -177,10 +177,10 @@ class Game {
           this.pawns[i].forEach((el) => {
             if (el != 0) {
               if (el.base == 1) {
-                el.kolorek = 'white'
+                el.pawnColor = 'white'
                 el.click('white')
               } else {
-                el.kolorek = 'black'
+                el.pawnColor = 'black'
                 el.click('black')
               }
             }
@@ -188,7 +188,7 @@ class Game {
         }
 
         if (this.camera_angle == 1) {
-          if (pawn.kolorek == 'white') {
+          if (pawn.pawnColor == 'white') {
             this.choosen_pawn = pawn
 
             pawn.click('yellow')
@@ -199,7 +199,7 @@ class Game {
           }
         }
         if (this.camera_angle == 2) {
-          if (pawn.kolorek == 'black') {
+          if (pawn.pawnColor == 'black') {
             this.choosen_pawn = pawn
 
             pawn.click('yellow')
