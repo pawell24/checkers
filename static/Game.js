@@ -1,6 +1,6 @@
 class Game {
   constructor(camera_angle, map) {
-    this.wybrany_pionek = ''
+    this.choosen_pawn = ''
     this.szachownica = [
       [0, 1, 0, 1, 0, 1, 0, 1],
       [1, 0, 1, 0, 1, 0, 1, 0],
@@ -189,7 +189,7 @@ class Game {
 
         if (this.camera_angle == 1) {
           if (pionek.kolorek == 'white') {
-            this.wybrany_pionek = pionek
+            this.choosen_pawn = pionek
 
             pionek.click('yellow')
           } else {
@@ -200,7 +200,7 @@ class Game {
         }
         if (this.camera_angle == 2) {
           if (pionek.kolorek == 'black') {
-            this.wybrany_pionek = pionek
+            this.choosen_pawn = pionek
 
             pionek.click('yellow')
           } else {
@@ -229,16 +229,16 @@ class Game {
       if (intersects[0].object.name == 'blok') {
         let blok = intersects[0].object
 
-        let i = this.wybrany_pionek.i
-        let j = this.wybrany_pionek.j
+        let i = this.choosen_pawn.i
+        let j = this.choosen_pawn.j
 
-        let { base } = this.wybrany_pionek
+        let { base } = this.choosen_pawn
 
         if (this.pawns_position[blok.i][blok.j] == 0 && obok(blok, i, j, base)) {
-          this.wybrany_pionek.move(blok.i, blok.j)
+          this.choosen_pawn.move(blok.i, blok.j)
           this.pawns_position[i][j] = 0
 
-          if (this.wybrany_pionek.base == 1) this.pawns_position[blok.i][blok.j] = 1
+          if (this.choosen_pawn.base == 1) this.pawns_position[blok.i][blok.j] = 1
           else this.pawns_position[blok.i][blok.j] = 2
 
           net.sendMap(blok.i, blok.j, i, j, this.camera_angle)
@@ -260,15 +260,15 @@ class Game {
   delete(pionek) {
     this.scene.remove(pionek)
 
-    this.pawns_position[pionek.i][pionek.j] = this.wybrany_pionek.base
-    this.pawns_position[this.wybrany_pionek.i][this.wybrany_pionek.j] = 0
+    this.pawns_position[pionek.i][pionek.j] = this.choosen_pawn.base
+    this.pawns_position[this.choosen_pawn.i][this.choosen_pawn.j] = 0
 
-    this.pionki[pionek.i][pionek.j] = this.wybrany_pionek
-    this.pionki[this.wybrany_pionek.i][this.wybrany_pionek.j] = 0
+    this.pionki[pionek.i][pionek.j] = this.choosen_pawn
+    this.pionki[this.choosen_pawn.i][this.choosen_pawn.j] = 0
 
-    net.sendMap(pionek.i, pionek.j, this.wybrany_pionek.i, this.wybrany_pionek.j, this.camera_angle)
+    net.sendMap(pionek.i, pionek.j, this.choosen_pawn.i, this.choosen_pawn.j, this.camera_angle)
 
-    this.wybrany_pionek.move(pionek.i, pionek.j)
+    this.choosen_pawn.move(pionek.i, pionek.j)
 
     this.update_minimap(this.pawns_position)
   }
