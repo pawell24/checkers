@@ -115,7 +115,7 @@ class Game {
         this.pawnboard_blocks[i].push(cube)
         this.scene.add(cube)
 
-        /////cylinder
+        //cylinder
 
         if (this.pawns_position[i][j] != 0) {
           let color
@@ -169,7 +169,7 @@ class Game {
     let intersects = this.raycaster.intersectObjects(this.scene.children)
 
     if (intersects.length > 0) {
-      /////wybranie pionka
+      //wybranie pionka
       if (intersects[0].object.name == 'pawn') {
         let pawn = this.find_pawn(intersects[0].object.uuid)
 
@@ -211,7 +211,7 @@ class Game {
         }
       }
 
-      ////ruch
+      //ruch
       let near = (blok, i, j, base) => {
         if (base == 2) {
           if (blok.i == i - 1 && blok.j == j - 1) return true

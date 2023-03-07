@@ -361,5 +361,5 @@ let server = http.createServer((req, res) => {
 })
 
 server.listen(3000, () => {
-  console.log('start servera Checker.')
+  console.log('Server is running :)')
 })
