@@ -266,7 +266,8 @@ let server = http.createServer((req, res) => {
             }
 
             if (users_tab.length > 2) {
-              output = 'Maksymalna liczba graczy.'
+              output =
+                'Nie mozesz dołączyć do rozgrywki, poniewaz znajduję się juz maksymalna ilość graczy :('
               status = 4
               waiting = false
               return
